@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.example.org/moviequiz" 
+	xmlns:mvns="http://www.example.org/moviequiz" 
+	elementFormDefault="qualified">
+	
+	<element name="quizgame">
+		<complexType>
+		    <sequence>
+		    	<any namespace="##other" minOccurs="1" processContents="strict" />
+		    	<element name="quizfrage" minOccurs="1" maxOccurs="unbounded">
+		    		<complexType>
+					    <sequence>
+					    	<element name="bild">
+					    		<complexType>
+					    			<attribute name="link" type="anyURI" />
+					    		</complexType>
+					    	</element>
+					        <element name="antwort"  maxOccurs="4">
+					        	<complexType>
+					        		<simpleContent>
+					        			<extension base="string">
+					        				<attribute name="result" type="boolean" />
+					        			</extension>
+					        		</simpleContent>
+					        	</complexType>
+					        </element>
+					    </sequence>
+					    <attribute name="time" type="time" />
+					    <attribute name="nr" type="mvns:question_nr" />
+	    			</complexType>
+		    	</element>
+		    </sequence>
+	    </complexType>
+	</element>
+    
+    <simpleType name="question_nr">
+    	<restriction base="integer">
+			<minInclusive value="1" />
+			<maxInclusive value="20" />
+    	</restriction>
+    </simpleType>
+</schema>

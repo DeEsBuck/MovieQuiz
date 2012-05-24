@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<quizgame xmlns="http://www.example.org/moviequiz"
+    xmlns:mvpns="http://www.example.org/moviequiz_player" >
+    <mvpns:player id="0003">
+        <mvpns:name>Wolfgang</mvpns:name>
+        <mvpns:wins>50</mvpns:wins> 
+        <mvpns:loss>250</mvpns:loss>
+    </mvpns:player>
+    <quizfrage time="00:00:20" nr="1">
+    	<bild link="http://www.irgendeine.uri.de/film/bild/id" />
+        <antwort result="1">Forest Gump</antwort>
+        <antwort result="0">Harry Potter</antwort>
+        <antwort result="0">Die Fliege</antwort>
+        <antwort result="0">The Crow</antwort>
+    </quizfrage>
+    <quizfrage time="00:00:20" nr="2">
+    	<bild link="http://www.irgendeine.uri.de/film/bild/id" />
+        <antwort result="1">Forest Gump</antwort>
+        <antwort result="0">Harry Potter</antwort>
+        <antwort result="0">Die Fliege</antwort>
+        <antwort result="0">The Crow</antwort>
+    </quizfrage>
+    <quizfrage time="00:00:20" nr="3">
+    	<bild link="http://www.irgendeine.uri.de/film/bild/id" />
+        <antwort result="1">Forest Gump</antwort>
+        <antwort result="0">Harry Potter</antwort>
+        <antwort result="0">Die Fliege</antwort>
+        <antwort result="0">The Crow</antwort>
+    </quizfrage>
+    <quizfrage time="00:00:20" nr="4">
+    	<bild link="http://www.irgendeine.uri.de/film/bild/id" />
+        <antwort result="1">Forest Gump</antwort>
+        <antwort result="0">Harry Potter</antwort>
+        <antwort result="0">Die Fliege</antwort>
+        <antwort result="0">The Crow</antwort>
+    </quizfrage>
+    <gamescore>
+        <wins>17</wins>
+        <loss>3</loss>
+    </gamescore>
+    
+</quizgame>

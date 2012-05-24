@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+ targetNamespace="http://www.example.org/moviequiz_player" 
+ xmlns:mvpns="http://www.example.org/moviequiz_player" 
+ elementFormDefault="qualified">
+   
+	<element name="name" type="string" />
+	<element name="wins" type="int" /> 
+	<element name="loss" type="int" />
+   
+	<element name="player" >
+   		<complexType>
+        	<sequence>
+     			<element ref="mvpns:name" minOccurs="1" />
+     			<element ref="mvpns:wins" minOccurs="1" />
+     			<element ref="mvpns:loss" minOccurs="1" />
+     		</sequence>
+     		<attribute name="id" type="mvpns:id_type" use="required"/>
+   		</complexType>
+  	</element>
+    
+    <simpleType name="id_type">
+    	<restriction base="int">
+    		<totalDigits value="4" />
+    	</restriction>
+    </simpleType>
+  	
+</schema>
