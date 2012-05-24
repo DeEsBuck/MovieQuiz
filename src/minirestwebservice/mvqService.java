@@ -29,6 +29,7 @@ public class mvqService {
 			JAXBContext context = JAXBContext.newInstance(Quizgame.class);
 			Unmarshaller um = context.createUnmarshaller();
 			um.setEventHandler(new javax.xml.bind.helpers.DefaultValidationEventHandler());
+			
 			try {
 				quiz = (Quizgame) um.unmarshal(new FileReader(QUIZ_XML));
 			}
