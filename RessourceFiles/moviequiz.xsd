@@ -30,14 +30,29 @@
 					    <attribute name="nr" type="mvns:question_nr" />
 	    			</complexType>
 		    	</element>
+		    	<element name="gamescore" type="mvns:gamescore_typ" />
 		    </sequence>
 	    </complexType>
 	</element>
+    
+    <complexType name="gamescore_typ">
+	    <sequence>
+	    	<element name="wins" type="int" />
+	    	<element name="loss" type="int" />
+	    	<element name="score" type="mvns:score_typ" />
+	    </sequence>
+    </complexType>
     
     <simpleType name="question_nr">
     	<restriction base="integer">
 			<minInclusive value="1" />
 			<maxInclusive value="20" />
     	</restriction>
+    </simpleType>
+    
+    <simpleType name="score_typ">
+    	<restriction base="nonNegativeInteger">
+	    	<pattern value="([1-9][0-9]*)" />
+	    </restriction>
     </simpleType>
 </schema>
