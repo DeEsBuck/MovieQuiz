@@ -28,7 +28,10 @@ public class xmlWriter {
 	private static final String LINK="http://localhost:4434/bild/nr";
 	/**
 	 * @param args
+	 * @return 
 	 */
+	//Erzeuegen von neuen XML Daten soll vom Client aus steuerbar sein, siehe mvqService.java 
+	/*
 	public static void main(String[] args) throws JAXBException, IOException {
 		ArrayList<Quizgame.Quizfrage> fragen = new ArrayList<Quizgame.Quizfrage>();
 		
@@ -44,7 +47,7 @@ public class xmlWriter {
 		link.setLink(LINK);
 		
 		//Antwortliste mit bis zu 4 Möglichkeiten
-		ArrayList<Antwort> antworten = createAntwortList(true, "Die Vögel", false, "Dracula", false, "Hanni und Nanni", false, "Pokemon");
+		ArrayList<Antwort> antworten = createAntwortList(true, "Die Vögel", false, "Drakula", false, "Hanni und Nanni", false, "Pokemon");
 		ArrayList<Antwort> antworten2 = createAntwortList(true, "Dragonball Z", false, "Bones", false, "Zombie Land", false, "sDuck Tales");
 		
 		//Einzelne Filme mit Antwortauswahl von darüber
@@ -78,10 +81,9 @@ public class xmlWriter {
 			}
 		}
 		
-		
-	}
+	}*/
 	
-	public static ArrayList<Antwort> createAntwortList (Boolean result, String value, Boolean result1, String value1, Boolean result2, String value2, Boolean result3, String value3) {
+	public ArrayList<Antwort> createAntwortList (Boolean result, String value, Boolean result1, String value1, Boolean result2, String value2, Boolean result3, String value3) {
 		ArrayList<Quizgame.Quizfrage.Antwort> antworten = new ArrayList<Quizgame.Quizfrage.Antwort>();
 		Quizgame.Quizfrage.Antwort antwort = createAntwort(result, value);
 		antworten.add(antwort);
@@ -94,14 +96,14 @@ public class xmlWriter {
 		return antworten;
 	}
 	
-	public static Antwort createAntwort (Boolean result, String value) {
+	public Antwort createAntwort (Boolean result, String value) {
 		Quizgame.Quizfrage.Antwort antwort = new Antwort();
 		antwort.setResult(result);
 		antwort.setValue(value);
 		return antwort;
 	}
 
-	public static Quizfrage createFrage (int nr, XMLGregorianCalendar time, Bild link, ArrayList<Antwort> antwort) {
+	public Quizfrage createFrage (int nr, XMLGregorianCalendar time, Bild link, ArrayList<Antwort> antwort) {
 		Quizgame.Quizfrage frage = new Quizfrage();
 		frage.setNr(nr);
 		frage.setTime(time);
@@ -110,7 +112,7 @@ public class xmlWriter {
 		return frage;
 	}
 	
-	public static Player createPlayer (String name, int wins, int loss, int id) {
+	public Player createPlayer (String name, int wins, int loss, int id) {
 		Player player = new Player();
 		player.setName(name);
 		player.setId(id);
@@ -118,7 +120,7 @@ public class xmlWriter {
 		player.setLoss(loss);
 		return player;
 	}
-	public static GamescoreTyp createGamescore (int wins, int loss, long scorenr) {
+	public GamescoreTyp createGamescore (int wins, int loss, long scorenr) {
 		GamescoreTyp score = new GamescoreTyp();
 		score.setWins(wins);
 		score.setLoss(loss);
