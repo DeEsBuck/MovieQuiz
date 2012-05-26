@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -30,61 +31,34 @@ public class xmlWriter {
 	 */
 	public static void main(String[] args) throws JAXBException, IOException {
 		ArrayList<Quizgame.Quizfrage> fragen = new ArrayList<Quizgame.Quizfrage>();
-		ArrayList<Quizgame.Quizfrage.Antwort> antworten = new ArrayList<Quizgame.Quizfrage.Antwort>();
 		
 		Quizgame quiz = new Quizgame();
 		
-		Player player = new Player();
-		player.setName("Harald");
-		player.setId(1);
-		player.setWins(10);
-		player.setLoss(0);
-		quiz.setAny(player);
+		//Spieler benennen und Spielstand für aktuelles Spiel
+		Player player = createPlayer("Harald",1,299,1);
+		GamescoreTyp score = createGamescore(1,4,900);
 		
-		GamescoreTyp score = new GamescoreTyp();
-		score.setWins(2);
-		score.setLoss(100);
-		score.setScore(BigInteger.valueOf(0));
-		quiz.setGamescore(score);
-				
-		Quizgame.Quizfrage.Antwort antwort = new Antwort();
-		antwort.setResult(true);
-		antwort.setValue("Die Vögel");
-		antworten.add(antwort);
-		Quizgame.Quizfrage.Antwort antwort1 = new Antwort();
-		antwort1.setResult(false);
-		antwort1.setValue("The Crow");
-		antworten.add(antwort1);
-		Quizgame.Quizfrage.Antwort antwort2 = new Antwort();
-		antwort2.setResult(false);
-		antwort2.setValue("Pokemon der Film");
-		antworten.add(antwort2);
-		Quizgame.Quizfrage.Antwort antwort3 = new Antwort();
-		antwort3.setResult(false);
-		antwort3.setValue("Das Schweigen der Lämmer");
-		antworten.add(antwort3);
-				
+		//Elemente für Quizfrage deklarieren
 		//XMLGregorianCalendar time = new GregorianCalendar();
 		Quizgame.Quizfrage.Bild link = new Bild();
 		link.setLink(LINK);
 		
-		Quizgame.Quizfrage frage = new Quizfrage();
-		frage.setNr(1);
-		frage.setTime(null);
-		frage.setBild(link);
-		frage.getAntwort().addAll(antworten);
-		fragen.add(frage);
+		//Antwortliste mit bis zu 4 Möglichkeiten
+		ArrayList<Antwort> antworten = createAntwortList(true, "Die Vögel", false, "Dracula", false, "Hanni und Nanni", false, "Pokemon");
+		ArrayList<Antwort> antworten2 = createAntwortList(true, "Dragonball Z", false, "Bones", false, "Zombie Land", false, "sDuck Tales");
 		
-		Quizgame.Quizfrage frage2 = new Quizfrage();
-		frage2.setNr(2);
-		frage2.setTime(null);
-		frage2.setBild(link);
-		frage2.getAntwort().addAll(antworten);
+		//Einzelne Filme mit Antwortauswahl von darüber
+		Quizgame.Quizfrage frage = createFrage(1,null,link,antworten);
+		fragen.add(frage);
+		Quizgame.Quizfrage frage2 = createFrage(2,null,link,antworten2);
 		fragen.add(frage2);
 		
+		//Zuweisung der Element an das Root Quizgame
+		quiz.setAny(player);
+		quiz.setGamescore(score);
 		quiz.getQuizfrage().addAll(fragen);
 		
-		
+		//in XML umwandeln und in Quiz.xml schreiben
 		JAXBContext context = JAXBContext.newInstance(Quizgame.class,Player.class);
 		Marshaller m = context.createMarshaller();
 		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
@@ -106,5 +80,49 @@ public class xmlWriter {
 		
 		
 	}
+	
+	public static ArrayList<Antwort> createAntwortList (Boolean result, String value, Boolean result1, String value1, Boolean result2, String value2, Boolean result3, String value3) {
+		ArrayList<Quizgame.Quizfrage.Antwort> antworten = new ArrayList<Quizgame.Quizfrage.Antwort>();
+		Quizgame.Quizfrage.Antwort antwort = createAntwort(result, value);
+		antworten.add(antwort);
+		Quizgame.Quizfrage.Antwort antwort1 = createAntwort(result1, value1);
+		antworten.add(antwort1);
+		Quizgame.Quizfrage.Antwort antwort2 = createAntwort(result2, value2);
+		antworten.add(antwort2);
+		Quizgame.Quizfrage.Antwort antwort3 = createAntwort(result3, value3);
+		antworten.add(antwort3);
+		return antworten;
+	}
+	
+	public static Antwort createAntwort (Boolean result, String value) {
+		Quizgame.Quizfrage.Antwort antwort = new Antwort();
+		antwort.setResult(result);
+		antwort.setValue(value);
+		return antwort;
+	}
 
+	public static Quizfrage createFrage (int nr, XMLGregorianCalendar time, Bild link, ArrayList<Antwort> antwort) {
+		Quizgame.Quizfrage frage = new Quizfrage();
+		frage.setNr(nr);
+		frage.setTime(time);
+		frage.setBild(link);
+		frage.getAntwort().addAll(antwort);
+		return frage;
+	}
+	
+	public static Player createPlayer (String name, int wins, int loss, int id) {
+		Player player = new Player();
+		player.setName(name);
+		player.setId(id);
+		player.setWins(wins);
+		player.setLoss(loss);
+		return player;
+	}
+	public static GamescoreTyp createGamescore (int wins, int loss, long scorenr) {
+		GamescoreTyp score = new GamescoreTyp();
+		score.setWins(wins);
+		score.setLoss(loss);
+		score.setScore(BigInteger.valueOf(scorenr));
+		return score;
+	}
 }
