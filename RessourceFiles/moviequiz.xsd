@@ -46,7 +46,7 @@
     <simpleType name="question_nr">
     	<restriction base="integer">
 			<minInclusive value="1" />
-			<maxInclusive value="20" />
+			<maxInclusive value="300" />
     	</restriction>
     </simpleType>
     

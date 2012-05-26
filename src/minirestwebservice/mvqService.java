@@ -17,13 +17,12 @@ import de.quiz.xml.Quizgame.Quizfrage;
 @SuppressWarnings("unused")
 @Path( "/quiz" )
 public class mvqService {
-	private static final String QUIZ_XML= "/home/doro/workspace/Aufgabe7/Quiz.xml";
+	private static final String QUIZ_XML= "././RessourceFiles/Quiz.xml";
 	
 		@GET @Produces( "application/xml" )
 		public Quizgame getAll() throws JAXBException, FileNotFoundException
 		{
 			de.quiz.xml.ObjectFactory obj1 = new de.quiz.xml.ObjectFactory();
-			de.player.xml.ObjectFactory obj2 = new de.player.xml.ObjectFactory();
 			
 			Quizgame quiz = new Quizgame();
 			JAXBContext context = JAXBContext.newInstance(Quizgame.class);
