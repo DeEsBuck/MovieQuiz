@@ -8,7 +8,7 @@
     <quizfrage nr="1">
         <bild link="http://localhost:4434/bild/nr"/>
         <antwort result="true">Die Vögel</antwort>
-        <antwort result="false">Dracula</antwort>
+        <antwort result="false">Drakula</antwort>
         <antwort result="false">Hanni und Nanni</antwort>
         <antwort result="false">Pokemon</antwort>
     </quizfrage>

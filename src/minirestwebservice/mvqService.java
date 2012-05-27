@@ -25,18 +25,20 @@ public class mvqService {
 	private static final String LINK="http://localhost:4434/bild/nr";
 	
 		//Funktioniert noch nicht oder ich stell mich wieder blöd an :\
-		//DAten Ändern mittels Query Parameter in URI: http://localhost:4434/quiz/player?id=1&name=Bernd&wins=100&loss=200
+		//DAten Ändern mittels Query Parameter in URI: http://localhost:4434/quiz/player/1?name=Bernd&wins=100&loss=200
 		//Vielleicht wäre hier ein anderer Anwendungsfall sinnvoller, anstatt den Player zu ändern.
 		@PUT 
 		@Consumes(MediaType.APPLICATION_XML)
 		@Produces( "application/xml" )
 		@Path("player/{id}")
-		public Quizgame newXML(
-				@PathParam("id") int id
-//				@FormParam("name") String name,
-//				@FormParam("wins") int wins,
-//				@FormParam("loss") int loss
+		public Quizgame newPlayer(
+				@PathParam("id") int id,
+				@FormParam("name") String name,
+				@FormParam("wins") int wins,
+				@FormParam("loss") int loss
 				) throws JAXBException, IOException {
+			
+			de.player.xml.ObjectFactory obj = new de.player.xml.ObjectFactory();
 			
 			xmlWriter creator = new xmlWriter();
 			ArrayList<Quizgame.Quizfrage> fragen = new ArrayList<Quizgame.Quizfrage>();
@@ -44,28 +46,10 @@ public class mvqService {
 			Quizgame quiz = new Quizgame();
 			
 			//Spieler benennen und Spielstand für aktuelles Spiel
-			Player player = creator.createPlayer("name",1,11,id); // hier sind die Parameter
-			GamescoreTyp score = creator.createGamescore(1,4,900);
-			
-			//Elemente für Quizfrage deklarieren
-			//XMLGregorianCalendar time = new GregorianCalendar();
-			Quizgame.Quizfrage.Bild link = new Bild();
-			link.setLink(LINK);
-			
-			//Antwortliste mit bis zu 4 Möglichkeiten
-			ArrayList<Antwort> antworten = creator.createAntwortList(true, "Die Vögel", false, "Drakula", false, "Hanni und Nanni", false, "Pokemon");
-			ArrayList<Antwort> antworten2 = creator.createAntwortList(true, "Dragonball Z", false, "Bones", false, "Zombie Land", false, "sDuck Tales");
-			
-			//Einzelne Filme mit Antwortauswahl von darüber
-			Quizgame.Quizfrage frage = creator.createFrage(1,null,link,antworten);
-			fragen.add(frage);
-			Quizgame.Quizfrage frage2 = creator.createFrage(2,null,link,antworten2);
-			fragen.add(frage2);
+			Player player = creator.createPlayer(name,wins,loss,id); // hier sind die Parameter
 			
 			//Zuweisung der Element an das Root Quizgame
 			quiz.setAny(player);
-			quiz.setGamescore(score);
-			quiz.getQuizfrage().addAll(fragen);
 			
 			//in XML umwandeln und in Quiz.xml schreiben
 			JAXBContext context = JAXBContext.newInstance(Quizgame.class,Player.class);
@@ -95,7 +79,7 @@ public class mvqService {
 		@GET @Produces( "application/xml" )
 		public Quizgame getAll() throws JAXBException, FileNotFoundException
 		{
-			de.quiz.xml.ObjectFactory obj1 = new de.quiz.xml.ObjectFactory();
+			de.quiz.xml.ObjectFactory obj = new de.quiz.xml.ObjectFactory();
 			
 			Quizgame quiz = new Quizgame();
 			JAXBContext context = JAXBContext.newInstance(Quizgame.class);
@@ -114,6 +98,7 @@ public class mvqService {
 				System.out.println(context.toString());
 				
 			}
+			
 			return quiz;
 		}
 		

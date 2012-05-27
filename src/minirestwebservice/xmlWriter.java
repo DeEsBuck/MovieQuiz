@@ -24,65 +24,20 @@ import de.quiz.xml.Quizgame.Quizfrage.Bild;
 @SuppressWarnings("unused")
 public class xmlWriter {
 
-	private static final String QUIZ_XML= "./././RessourceFiles/Quiz.xml";
-	private static final String LINK="http://localhost:4434/bild/nr";
-	/**
-	 * @param args
-	 * @return 
-	 */
-	//Erzeuegen von neuen XML Daten soll vom Client aus steuerbar sein, siehe mvqService.java 
-	/*
-	public static void main(String[] args) throws JAXBException, IOException {
-		ArrayList<Quizgame.Quizfrage> fragen = new ArrayList<Quizgame.Quizfrage>();
-		
-		Quizgame quiz = new Quizgame();
-		
-		//Spieler benennen und Spielstand für aktuelles Spiel
-		Player player = createPlayer("Harald",1,299,1);
-		GamescoreTyp score = createGamescore(1,4,900);
-		
-		//Elemente für Quizfrage deklarieren
-		//XMLGregorianCalendar time = new GregorianCalendar();
-		Quizgame.Quizfrage.Bild link = new Bild();
-		link.setLink(LINK);
-		
-		//Antwortliste mit bis zu 4 Möglichkeiten
-		ArrayList<Antwort> antworten = createAntwortList(true, "Die Vögel", false, "Drakula", false, "Hanni und Nanni", false, "Pokemon");
-		ArrayList<Antwort> antworten2 = createAntwortList(true, "Dragonball Z", false, "Bones", false, "Zombie Land", false, "sDuck Tales");
-		
-		//Einzelne Filme mit Antwortauswahl von darüber
-		Quizgame.Quizfrage frage = createFrage(1,null,link,antworten);
-		fragen.add(frage);
-		Quizgame.Quizfrage frage2 = createFrage(2,null,link,antworten2);
-		fragen.add(frage2);
-		
-		//Zuweisung der Element an das Root Quizgame
-		quiz.setAny(player);
-		quiz.setGamescore(score);
-		quiz.getQuizfrage().addAll(fragen);
-		
-		//in XML umwandeln und in Quiz.xml schreiben
-		JAXBContext context = JAXBContext.newInstance(Quizgame.class,Player.class);
-		Marshaller m = context.createMarshaller();
-		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-		m.marshal(quiz, System.out);
-		
-		Writer wr = null;
-		try {
-			wr = new FileWriter(QUIZ_XML);
-			m.marshal(quiz, wr);
-		}
-		finally {
-			try {
-				wr.close();
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		
-	}*/
 	
+	/**
+	 * Erzeugt 4 Antwortmöglichkeiten, die mit der Funktion createAntwort erfasst werden. 
+	 * Diese ArrayList muss in createFrage() übergeben werden.
+	 * @param result
+	 * @param value
+	 * @param result1
+	 * @param value1
+	 * @param result2
+	 * @param value2
+	 * @param result3
+	 * @param value3
+	 * @return ArrayList<Antwort>
+	 */
 	public ArrayList<Antwort> createAntwortList (Boolean result, String value, Boolean result1, String value1, Boolean result2, String value2, Boolean result3, String value3) {
 		ArrayList<Quizgame.Quizfrage.Antwort> antworten = new ArrayList<Quizgame.Quizfrage.Antwort>();
 		Quizgame.Quizfrage.Antwort antwort = createAntwort(result, value);
@@ -96,6 +51,12 @@ public class xmlWriter {
 		return antworten;
 	}
 	
+	/**
+	 * Zur Verwendung in createAntwortList()
+	 * @param result
+	 * @param value
+	 * @return Antwort
+	 */
 	public Antwort createAntwort (Boolean result, String value) {
 		Quizgame.Quizfrage.Antwort antwort = new Antwort();
 		antwort.setResult(result);
@@ -103,6 +64,14 @@ public class xmlWriter {
 		return antwort;
 	}
 
+	/**
+	 * Objekt Quizfrage muss in getQuizfrage() dem Quizgame Root eingefügt werden. Z.B. <CODE>quiz.getQuizfrage().addAll(fragen);</CODE>
+	 * @param nr
+	 * @param time
+	 * @param link
+	 * @param antwort
+	 * @return Quizfrage
+	 */
 	public Quizfrage createFrage (int nr, XMLGregorianCalendar time, Bild link, ArrayList<Antwort> antwort) {
 		Quizgame.Quizfrage frage = new Quizfrage();
 		frage.setNr(nr);
@@ -112,6 +81,14 @@ public class xmlWriter {
 		return frage;
 	}
 	
+	/**
+	 * Objekt Player muss in setAny dem Quizgame Root eingefügt werden. Z.B. <CODE>quiz.setAny(player);</CODE
+	 * @param name
+	 * @param wins
+	 * @param loss
+	 * @param id
+	 * @return Player
+	 */
 	public Player createPlayer (String name, int wins, int loss, int id) {
 		Player player = new Player();
 		player.setName(name);
@@ -120,6 +97,14 @@ public class xmlWriter {
 		player.setLoss(loss);
 		return player;
 	}
+	
+	/**
+	 * Objekt GamescoreTyp muss in setGamescore dem Quizgame Root eingefügt werden. Z.B. <CODE>quiz.setGamescore(score);</CODE>
+	 * @param wins
+	 * @param loss
+	 * @param scorenr
+	 * @return GamescoreTyp
+	 */
 	public GamescoreTyp createGamescore (int wins, int loss, long scorenr) {
 		GamescoreTyp score = new GamescoreTyp();
 		score.setWins(wins);
