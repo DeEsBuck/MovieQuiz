@@ -7,6 +7,7 @@
 	<element name="quizgame">
 		<complexType>
 		    <sequence>
+		    	<element name="thema" type="string" />
 		    	<any namespace="##other" minOccurs="1" processContents="strict" />
 		    	<element name="quizfrage" minOccurs="1" maxOccurs="unbounded">
 		    		<complexType>
@@ -32,6 +33,7 @@
 		    	</element>
 		    	<element name="gamescore" type="mvns:gamescore_typ" />
 		    </sequence>
+		    <attribute name="id" type="int" />
 	    </complexType>
 	</element>
     

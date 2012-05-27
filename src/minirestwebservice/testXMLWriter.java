@@ -51,6 +51,8 @@ public class testXMLWriter {
 		fragen.add(frage2);
 		
 		//Zuweisung der Element an das Root Quizgame
+		quiz.setId(1);
+		quiz.setThema("Spökes");
 		quiz.setAny(player);
 		quiz.setGamescore(score);
 		quiz.getQuizfrage().addAll(fragen);

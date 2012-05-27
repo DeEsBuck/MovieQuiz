@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<quizgame xmlns:ns2="http://www.example.org/moviequiz_player" xmlns="http://www.example.org/moviequiz">
+<quizgame id="001" xmlns:ns2="http://www.example.org/moviequiz_player" xmlns="http://www.example.org/moviequiz">
+    <thema>Spökes</thema>
     <ns2:player id="1">
         <ns2:name>Harald</ns2:name>
         <ns2:wins>1</ns2:wins>
