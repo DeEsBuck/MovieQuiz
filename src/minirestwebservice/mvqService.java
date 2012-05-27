@@ -31,14 +31,14 @@ public class mvqService {
 		@Consumes(MediaType.APPLICATION_XML)
 		@Produces( "application/xml" )
 		@Path("player/{id}")
-		public Quizgame newPlayer(
+		public void newPlayer(
 				@PathParam("id") int id,
 				@FormParam("name") String name,
 				@FormParam("wins") int wins,
 				@FormParam("loss") int loss
 				) throws JAXBException, IOException {
 			
-			de.player.xml.ObjectFactory obj = new de.player.xml.ObjectFactory();
+			de.quiz.xml.ObjectFactory obj = new de.quiz.xml.ObjectFactory();
 			
 			xmlWriter creator = new xmlWriter();
 			ArrayList<Quizgame.Quizfrage> fragen = new ArrayList<Quizgame.Quizfrage>();
@@ -70,9 +70,33 @@ public class mvqService {
 					e.printStackTrace();
 				}
 			}
+		}
+		
+		//Auch unvollstädig, bitte zum laufen kriegen
+		@Path("/player")
+		@GET @Produces( "application/xml" )
+		public Quizgame getPlayer() throws JAXBException, FileNotFoundException
+		{
+			de.quiz.xml.ObjectFactory obj = new de.quiz.xml.ObjectFactory();
+			Quizgame quiz = new Quizgame();
+			JAXBContext context = JAXBContext.newInstance(Quizgame.class);
+			Unmarshaller um = context.createUnmarshaller();
+			try {
+				quiz = (Quizgame) um.unmarshal(new FileReader(QUIZ_XML));
+			}
+			catch (FileNotFoundException e) {
+				System.err.println("File not Found");
+			}
+			catch (Exception e) {
+				System.out.println("Fehler");
+				e.printStackTrace();
+				System.out.println(context.toString());
+				
+			}
 			
-			return quiz;
-			
+			Quizgame player = obj.createQuizgame();
+			player.getAny();
+			return player;
 		}
 		
 		
@@ -127,7 +151,5 @@ public class mvqService {
 			frage.getQuizfrage().add(quiz.getQuizfrage().get(i-1));
 			return frage;
 		}
-		
-		
-	
+
 }

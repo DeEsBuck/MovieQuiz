@@ -9,29 +9,30 @@ import javax.swing.*;
 	import javax.swing.JApplet;
 	import javax.swing.JButton;
 	import javax.swing.JLabel;
+	import javax.swing.JRadioButton;
 	import javax.swing.LookAndFeel;
 	import javax.swing.UIManager;
 	import javax.swing.UIManager.LookAndFeelInfo;
 
 	public class guiPanel extends JApplet implements ActionListener {
 
-	  JButton btnHello;
+	  JButton Start;
 	  JLabel  lblMessage = new JLabel();
 	  
 	  public guiPanel() {
 	    setLayout( new FlowLayout() );
 	    
-	    btnHello = new JButton("Hello");
+	    Start = new JButton("Hello");
 	    lblMessage = new JLabel("Nichts angeklickt");
 	  }
 	  
 	  public void init() {
 	    // Aktion zu Hello-Button hinzufuegen
-	    btnHello.addActionListener( this );
+	    Start.addActionListener( this );
 	    
 	    // Elemente auf JApplet einfuegen
 	    add( lblMessage );
-	    add( btnHello );
+	    add( Start );
 	  }
 	  
 	  public void start() {
