@@ -9,5 +9,7 @@
 	<classpathentry kind="lib" path="/home/doro/Projekte/WBA2/jersey-archive-1.1.5.1/lib/jsr311-api-1.1.1.jar"/>
 	<classpathentry kind="lib" path="/home/doro/Projekte/WBA2/grizzly-servlet-webserver-1.9.9.jar"/>
 	<classpathentry kind="lib" path="/home/doro/Projekte/WBA2/jersey-archive-1.1.5.1/lib/jackson-core-asl-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/media/Data_/fh-köln/Dropbox/WBA2/Phase 2/Aufgabe5/movieQuizGUI/lib/beans-binding/beansbinding-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/media/Data_/fh-köln/Dropbox/WBA2/Phase 2/Aufgabe5/movieQuizGUI/lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
