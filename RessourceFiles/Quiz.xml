@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <quizgame id="0" xmlns:ns2="http://www.example.org/moviequiz_player" xmlns="http://www.example.org/moviequiz">
-    <ns2:player id="1">
-        <ns2:name>dodo</ns2:name>
-        <ns2:wins>599</ns2:wins>
+    <ns2:player id="0">
+        <ns2:wins>0</ns2:wins>
         <ns2:loss>0</ns2:loss>
     </ns2:player>
 </quizgame>

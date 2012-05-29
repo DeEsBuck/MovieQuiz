@@ -51,7 +51,7 @@ public class mvqService {
 			quiz.setAny(player);
 			
 			//in XML umwandeln und in Quiz.xml schreiben
-			JAXBContext context = JAXBContext.newInstance(Quizgame.class,Player.class);
+			JAXBContext context = JAXBContext.newInstance(de.player.xml.Player.class);
 			Marshaller m = context.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			m.marshal(quiz, System.out);
@@ -79,7 +79,7 @@ public class mvqService {
 		{
 			de.player.xml.ObjectFactory obj = new de.player.xml.ObjectFactory();
 			Player player = new Player();
-			JAXBContext context = JAXBContext.newInstance(Player.class);
+			JAXBContext context = JAXBContext.newInstance(de.player.xml.Player.class,Quizgame.class);
 			Unmarshaller um = context.createUnmarshaller();
 			try {
 				player = (Player) um.unmarshal(new FileReader(QUIZ_XML));

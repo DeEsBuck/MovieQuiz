@@ -1,0 +1,1 @@
+INDEX VERSION 1.126+D:\fh-köln\SS_12\WBA2\Prak\Phase 2\Phase_2\.metadata\.plugins\org.eclipse.jdt.core
