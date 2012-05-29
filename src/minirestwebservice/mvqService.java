@@ -27,18 +27,17 @@ public class mvqService {
 		//Funktioniert noch nicht oder ich stell mich wieder blöd an :\
 		//DAten Ändern mittels Query Parameter in URI: http://localhost:4434/quiz/player/1?name=Bernd&wins=100&loss=200
 		//Vielleicht wäre hier ein anderer Anwendungsfall sinnvoller, anstatt den Player zu ändern.
-		@PUT 
+		@GET 
 		@Consumes(MediaType.APPLICATION_XML)
 		@Produces( "application/xml" )
 		@Path("player/{id}")
-		public void newPlayer(
+		public Quizgame newPlayer(
 				@PathParam("id") int id,
-				@FormParam("name") String name,
-				@FormParam("wins") int wins,
-				@FormParam("loss") int loss
+				@QueryParam("name") String name,
+				@QueryParam("wins") int wins,
+				@QueryParam("loss") int loss
 				) throws JAXBException, IOException {
 			
-			de.quiz.xml.ObjectFactory obj = new de.quiz.xml.ObjectFactory();
 			
 			xmlWriter creator = new xmlWriter();
 			ArrayList<Quizgame.Quizfrage> fragen = new ArrayList<Quizgame.Quizfrage>();
@@ -70,19 +69,20 @@ public class mvqService {
 					e.printStackTrace();
 				}
 			}
+			return quiz;
 		}
 		
 		//Auch unvollstädig, bitte zum laufen kriegen
 		@Path("/player")
 		@GET @Produces( "application/xml" )
-		public Quizgame getPlayer() throws JAXBException, FileNotFoundException
+		public Player getPlayer() throws JAXBException, FileNotFoundException
 		{
-			de.quiz.xml.ObjectFactory obj = new de.quiz.xml.ObjectFactory();
-			Quizgame quiz = new Quizgame();
-			JAXBContext context = JAXBContext.newInstance(Quizgame.class);
+			de.player.xml.ObjectFactory obj = new de.player.xml.ObjectFactory();
+			Player player = new Player();
+			JAXBContext context = JAXBContext.newInstance(Player.class);
 			Unmarshaller um = context.createUnmarshaller();
 			try {
-				quiz = (Quizgame) um.unmarshal(new FileReader(QUIZ_XML));
+				player = (Player) um.unmarshal(new FileReader(QUIZ_XML));
 			}
 			catch (FileNotFoundException e) {
 				System.err.println("File not Found");
@@ -94,9 +94,9 @@ public class mvqService {
 				
 			}
 			
-			Quizgame player = obj.createQuizgame();
-			player.getAny();
-			return player;
+			Player player1 = obj.createPlayer();
+			player1.getName();
+			return player1;
 		}
 		
 		
