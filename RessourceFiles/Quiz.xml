@@ -1,24 +1,150 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <quizgame id="1" xmlns:ns2="http://www.example.org/moviequiz_player" xmlns="http://www.example.org/moviequiz">
-    <thema>Spökes</thema>
-    <ns2:player id="1">
-        <ns2:name>Harald</ns2:name>
-        <ns2:wins>1</ns2:wins>
-        <ns2:loss>299</ns2:loss>
-    </ns2:player>
+    <thema>Spoekes</thema>
+    <player id="1">
+        <name>Harald</name>
+        <wins>1</wins>
+        <loss>299</loss>
+    </player>
     <quizfrage nr="1">
-        <bild link="http://localhost:4434/bild/nr"/>
-        <antwort result="true">Die Vögel</antwort>
+        <bild link="http://localhost:4434/de/gui/pics/image001.jpg"/>
+        <antwort result="true">TDR - The Devil Rejects</antwort>
         <antwort result="false">Drakula</antwort>
         <antwort result="false">Hanni und Nanni</antwort>
         <antwort result="false">Pokemon</antwort>
     </quizfrage>
     <quizfrage nr="2">
-        <bild link="http://localhost:4434/bild/nr"/>
-        <antwort result="true">Dragonball Z</antwort>
-        <antwort result="false">Bones</antwort>
-        <antwort result="false">Zombie Land</antwort>
-        <antwort result="false">sDuck Tales</antwort>
+        <bild link="http://localhost:4434/de/gui/pics/image023.jpg"/>
+        <antwort result="true">Crank 2</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="3">
+        <bild link="http://localhost:4434/de/gui/pics/image003.jpg"/>
+        <antwort result="true">Che</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="4">
+        <bild link="http://localhost:4434/de/gui/pics/image004.jpg"/>
+        <antwort result="true">Donnie Brasco</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="5">
+        <bild link="http://localhost:4434/de/gui/pics/image005.jpg"/>
+        <antwort result="true">Inglorious Basterds</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="6">
+        <bild link="http://localhost:4434/de/gui/pics/image006.jpg"/>
+        <antwort result="true">Der Rote Baron</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="7">
+        <bild link="http://localhost:4434/de/gui/pics/image007.jpg"/>
+        <antwort result="true">Punisher: War zone</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="8">
+        <bild link="http://localhost:4434/de/gui/pics/image010.jpg"/>
+        <antwort result="true">39,90</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="9">
+        <bild link="http://localhost:4434/de/gui/pics/image012.jpg"/>
+        <antwort result="true">So finster die Nacht</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="10">
+        <bild link="http://localhost:4434/de/gui/pics/image013.jpg"/>
+        <antwort result="true">The Game</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="11">
+        <bild link="http://localhost:4434/de/gui/pics/image014.jpg"/>
+        <antwort result="true">Dawn of the Dead</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="12">
+        <bild link="http://localhost:4434/de/gui/pics/image015.jpg"/>
+        <antwort result="true">Zwei glorreiche Halunken</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="13">
+        <bild link="http://localhost:4434/de/gui/pics/image016.jpg"/>
+        <antwort result="true">Star Wars Episode II</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="14">
+        <bild link="http://localhost:4434/de/gui/pics/image017.jpg"/>
+        <antwort result="true">Tucker and Dale VS Evil</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="15">
+        <bild link="http://localhost:4434/de/gui/pics/image018.jpg"/>
+        <antwort result="true">Adaption</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="16">
+        <bild link="http://localhost:4434/de/gui/pics/image019.jpg"/>
+        <antwort result="true">Das weisse Band</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="17">
+        <bild link="http://localhost:4434/de/gui/pics/image020.jpg"/>
+        <antwort result="true">Braveheart</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="18">
+        <bild link="http://localhost:4434/de/gui/pics/image022.jpg"/>
+        <antwort result="true">Spaceballs</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="19">
+        <bild link="http://localhost:4434/de/gui/pics/image024.jpg"/>
+        <antwort result="true">Black Dynamite</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="20">
+        <bild link="http://localhost:4434/de/gui/pics/image026.jpg"/>
+        <antwort result="true">Lucky Number Slevin</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
     </quizfrage>
     <gamescore>
         <wins>1</wins>

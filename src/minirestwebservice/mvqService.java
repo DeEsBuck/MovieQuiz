@@ -10,6 +10,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 import de.player.xml.Player;
 import de.quiz.xml.GamescoreTyp;
@@ -31,7 +32,8 @@ public class mvqService {
 		@Consumes(MediaType.APPLICATION_XML)
 		@Produces( "application/xml" )
 		@Path("player/{id}")
-		public Quizgame newPlayer(
+		
+		public void newPlayer(
 				@PathParam("id") int id,
 				@QueryParam("name") String name,
 				@QueryParam("wins") int wins,
@@ -46,43 +48,67 @@ public class mvqService {
 			
 			//Spieler benennen und Spielstand für aktuelles Spiel
 			Player player = creator.createPlayer(name,wins,loss,id); // hier sind die Parameter
-			
-			//Zuweisung der Element an das Root Quizgame
-			quiz.setAny(player);
-			
-			//in XML umwandeln und in Quiz.xml schreiben
-			JAXBContext context = JAXBContext.newInstance(de.player.xml.Player.class);
-			Marshaller m = context.createMarshaller();
-			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-			m.marshal(quiz, System.out);
-			
-			Writer wr = null;
-			try {
-				wr = new FileWriter(QUIZ_XML);
-				m.marshal(quiz, wr);
-			}
-			finally {
-				try {
-					wr.close();
-				}
-				catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			return quiz;
+
+
+		
 		}
+
+		
+		@POST 
+		@Consumes(MediaType.APPLICATION_XML)
+		@Produces( "application/xml" )
+		@Path("player/{id}")		
+		public void updatePlayer(
+				@PathParam("id") int id
+				) throws JAXBException, IOException {
+			
+			
+			xmlWriter creator = new xmlWriter();
+			ArrayList<Quizgame.Quizfrage> fragen = new ArrayList<Quizgame.Quizfrage>();
+			
+			Quizgame quiz = new Quizgame();
+			
+			//Spieler benennen und Spielstand für aktuelles Spiel
+			Player player = creator.updatePlayer(id); // hier sind die Parameter
+			
+
+			
+		
+		
+		}
+		//loescht alle Spielerdaten zur angegebenen ID
+		@DELETE
+		@Consumes(MediaType.APPLICATION_XML)
+		@Produces( "application/xml" )
+		@Path("player/{id}")
+		public void deletePlayer(
+				@PathParam("id") int id
+				) throws JAXBException, IOException {
+			
+			
+			xmlWriter creator = new xmlWriter();
+			ArrayList<Quizgame.Quizfrage> fragen = new ArrayList<Quizgame.Quizfrage>();
+			
+			Quizgame quiz = new Quizgame();
+			
+			//Spieler benennen und Spielstand für aktuelles Spiel
+			Player player = creator.deletePlayer(id); // hier sind die Parameter
+			
+		}
+		
+		
 		
 		//Auch unvollstädig, bitte zum laufen kriegen
 		@Path("/player")
 		@GET @Produces( "application/xml" )
 		public Player getPlayer() throws JAXBException, FileNotFoundException
 		{
-			de.player.xml.ObjectFactory obj = new de.player.xml.ObjectFactory();
-			Player player = new Player();
-			JAXBContext context = JAXBContext.newInstance(de.player.xml.Player.class,Quizgame.class);
+			de.quiz.xml.ObjectFactory obj = new de.quiz.xml.ObjectFactory();
+			Quizgame quiz = new Quizgame();
+			JAXBContext context = JAXBContext.newInstance(Quizgame.class,Player.class);
 			Unmarshaller um = context.createUnmarshaller();
 			try {
-				player = (Player) um.unmarshal(new FileReader(QUIZ_XML));
+				quiz = (Quizgame) um.unmarshal(new FileReader(QUIZ_XML));
 			}
 			catch (FileNotFoundException e) {
 				System.err.println("File not Found");
@@ -93,12 +119,9 @@ public class mvqService {
 				System.out.println(context.toString());
 				
 			}
-			
-			Player player1 = obj.createPlayer();
-			player1.getName();
-			return player1;
+			return null;
 		}
-		
+
 		
 		@GET @Produces( "application/xml" )
 		public Quizgame getAll() throws JAXBException, FileNotFoundException
@@ -151,5 +174,6 @@ public class mvqService {
 			frage.getQuizfrage().add(quiz.getQuizfrage().get(i-1));
 			return frage;
 		}
+
 
 }
