@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<quizgame id="0" xmlns:ns2="http://www.example.org/moviequiz_player" xmlns="http://www.example.org/moviequiz">
-    <ns2:player id="0">
-        <ns2:wins>0</ns2:wins>
-        <ns2:loss>0</ns2:loss>
+<quizgame id="1" xmlns:ns2="http://www.example.org/moviequiz_player" xmlns="http://www.example.org/moviequiz">
+    <thema>Spökes</thema>
+    <ns2:player id="1">
+        <ns2:name>Harald</ns2:name>
+        <ns2:wins>1</ns2:wins>
+        <ns2:loss>299</ns2:loss>
     </ns2:player>
+    <quizfrage nr="1">
+        <bild link="http://localhost:4434/bild/nr"/>
+        <antwort result="true">Die Vögel</antwort>
+        <antwort result="false">Drakula</antwort>
+        <antwort result="false">Hanni und Nanni</antwort>
+        <antwort result="false">Pokemon</antwort>
+    </quizfrage>
+    <quizfrage nr="2">
+        <bild link="http://localhost:4434/bild/nr"/>
+        <antwort result="true">Dragonball Z</antwort>
+        <antwort result="false">Bones</antwort>
+        <antwort result="false">Zombie Land</antwort>
+        <antwort result="false">sDuck Tales</antwort>
+    </quizfrage>
+    <gamescore>
+        <wins>1</wins>
+        <loss>4</loss>
+        <score>900</score>
+    </gamescore>
 </quizgame>

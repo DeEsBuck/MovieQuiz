@@ -3,12 +3,10 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="D:/fh-köln/SS_12/WBA2/Prak/Phase 2/Phase_2/lib/asm-3.1.jar"/>
-	<classpathentry kind="lib" path="D:/fh-köln/SS_12/WBA2/Prak/Phase 2/Phase_2/lib/beansbinding-1.2.1.jar"/>
 	<classpathentry kind="lib" path="D:/fh-köln/SS_12/WBA2/Prak/Phase 2/Phase_2/lib/grizzly-servlet-webserver-1.9.18.jar"/>
 	<classpathentry kind="lib" path="D:/fh-köln/SS_12/WBA2/Prak/Phase 2/Phase_2/lib/jersey-client-1.1.5.1.jar"/>
 	<classpathentry kind="lib" path="D:/fh-köln/SS_12/WBA2/Prak/Phase 2/Phase_2/lib/jersey-core-1.1.5.1.jar"/>
 	<classpathentry kind="lib" path="D:/fh-köln/SS_12/WBA2/Prak/Phase 2/Phase_2/lib/jersey-server-1.1.5.1.jar"/>
 	<classpathentry kind="lib" path="D:/fh-köln/SS_12/WBA2/Prak/Phase 2/Phase_2/lib/jsr311-api-1.1.1.jar"/>
-	<classpathentry kind="lib" path="D:/fh-köln/SS_12/WBA2/Prak/Phase 2/Phase_2/lib/org-netbeans-modules-java-j2seproject-copylibstask.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
