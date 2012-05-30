@@ -81,6 +81,7 @@ public class xmlWriter {
 		return frage;
 	}
 	
+	
 	/**
 	 * Objekt Player muss in setAny dem Quizgame Root eingef√ºgt werden. Z.B. <CODE>quiz.setAny(player);</CODE
 	 * @param name
@@ -95,6 +96,29 @@ public class xmlWriter {
 		player.setId(id);
 		player.setWins(wins);
 		player.setLoss(loss);
+		return player;
+	}
+	
+	
+	public Player updatePlayer (int id) {
+		Player player = new Player();
+		return player;
+	}
+	
+	/**
+	 * Objekt Player muss in setAny dem Quizgame Root gelˆscht werden. Z.B. <CODE>quiz.setAny(player);</CODE
+	 * @param name
+	 * @param wins
+	 * @param loss
+	 * @param id
+	 * @return Player
+	 */
+	public Player deletePlayer ( int id) {
+		Player player = new Player();
+		player.setName(null);
+		player.setId(id);
+		player.setWins(0);
+		player.setLoss(0);
 		return player;
 	}
 	
